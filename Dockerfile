@@ -4,7 +4,7 @@ MAINTAINER "Dylan Lindgren" <dylan.lindgren@gmail.com>
 
 WORKDIR /tmp
 
-# Install prerequisites for Nginx compile
+# Install Nginx
 RUN apt-get update -y && \
     apt-get install -y nginx
 
