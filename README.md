@@ -9,4 +9,11 @@ This is a [Docker](http://www.docker.com) image for [Nginx](http://nginx.org), i
 
 An automated build for this repo is available on the [Docker Hub](https://registry.hub.docker.com/u/dylanlindgren/docker-laravel-nginx/).
 
+This image works well with the below related images.
+- [dylanlindgren/docker-laravel-data](https://github.com/dylanlindgren/docker-laravel-data)
+- [dylanlindgren/docker-laravel-phpfpm](https://github.com/dylanlindgren/docker-laravel-phpfpm)
+- [dylanlindgren/docker-laravel-composer](https://github.com/dylanlindgren/docker-laravel-composer)
+- [dylanlindgren/docker-laravel-artisan](https://github.com/dylanlindgren/docker-laravel-artisan)
+- [dylanlindgren/docker-laravel-bower](https://github.com/dylanlindgren/docker-laravel-bower)
+
 If you have any feedback or questions, feel free to leave a comment on my blog, or you can contact me on Twitter with [@dylanlindgren](https://twitter.com/dylanlindgren) or email with dylan.lindgren@gmail.com.
