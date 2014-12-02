@@ -13,5 +13,6 @@ This image works well with the below related images.
 - [dylanlindgren/docker-laravel-composer](https://github.com/dylanlindgren/docker-laravel-composer)
 - [dylanlindgren/docker-laravel-artisan](https://github.com/dylanlindgren/docker-laravel-artisan)
 - [dylanlindgren/docker-laravel-bower](https://github.com/dylanlindgren/docker-laravel-bower)
+- [dylanlindgren/docker-laravel-phpunit](https://github.com/dylanlindgren/docker-laravel-phpunit)
 
 If you have any feedback or questions, feel free to leave a comment on my blog, or you can contact me on Twitter with [@dylanlindgren](https://twitter.com/dylanlindgren) or email with dylan.lindgren@gmail.com.
