@@ -1,6 +1,6 @@
 FROM debian:jessie
 
-MAINTAINER "Dylan Lindgren" <dylan.lindgren@gmail.com>
+MAINTAINER "Zak Henry" <zak.henry@gmail.com>
 
 WORKDIR /tmp
 
@@ -10,9 +10,7 @@ RUN apt-get update -y && \
 
 # Apply Nginx configuration
 ADD config/nginx.conf /opt/etc/nginx.conf
-ADD config/laravel /etc/nginx/sites-available/laravel
-RUN ln -s /etc/nginx/sites-available/laravel /etc/nginx/sites-enabled/laravel && \
-    rm /etc/nginx/sites-enabled/default
+RUN rm /etc/nginx/sites-enabled/default
 
 # Nginx startup script
 ADD config/nginx-start.sh /opt/bin/nginx-start.sh
