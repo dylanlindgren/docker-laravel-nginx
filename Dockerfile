@@ -20,9 +20,7 @@ RUN mkdir -p /data
 VOLUME ["/data"]
 
 # PORTS
-EXPOSE 80
-EXPOSE 8080
-EXPOSE 443
+EXPOSE 80 8080 443
 
 WORKDIR /opt/bin
 ENTRYPOINT ["/opt/bin/nginx-start.sh"]
