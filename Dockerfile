@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM spira/docker-base
 
 MAINTAINER "Zak Henry" <zak.henry@gmail.com>
 
