@@ -16,8 +16,7 @@ RUN rm /etc/nginx/sites-enabled/default
 ADD config/nginx-start.sh /opt/bin/nginx-start.sh
 RUN chmod u=rwx /opt/bin/nginx-start.sh
 
-RUN mkdir -p /data
-VOLUME ["/data"]
+RUN mkdir -p ${DATA_ROOT:-/data}
 
 # PORTS
 EXPOSE 80 8080 443
