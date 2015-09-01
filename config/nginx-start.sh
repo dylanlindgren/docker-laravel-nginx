@@ -1,19 +1,21 @@
 #!/bin/bash
 cp /opt/etc/nginx.conf /etc/nginx/nginx.conf
 
-cp ${DATA_ROOT:-/data}/${NGINX_VHOSTS} /etc/nginx/sites-available/
+export DATA_ROOT=${DATA_ROOT:-/data}
+
+cp ${DATA_ROOT}/${NGINX_VHOSTS} /etc/nginx/sites-available/
 ln -s /etc/nginx/sites-available/*.conf /etc/nginx/sites-enabled/
 
-sed -i "s/%fastgci-ip%/$PHP_PORT_9000_TCP_ADDR/" /etc/nginx/nginx.conf
-sed -i "s|%data-root%|${DATA_ROOT:-/data}|" /etc/nginx/nginx.conf
-sed -i "s|%data-root%|${DATA_ROOT:-/data}|" /etc/nginx/sites-available/*.conf
-
+#export the current tcp ip address so configuration can forward the nginx service port to dependent services
+export UPSTREAM_WEB_TCP_ADDR=$(ip -f inet -o addr show eth0 | cut -d\  -f 7 | cut -d/ -f 1)
 #iterate though all the env vars and replace %ENV% with the value
 printenv | while read envdef; do #iterate over all env vars
     key=${envdef%=*} # extract the env key name
 #    echo "%"$env"% = "${!env};
 
-    sed -i "s|%$key%|${!key}|" /etc/nginx/sites-available/*.conf # replace all instances of %KEY% with the value
+    # replace all instances of %KEY% with the relevant environment value
+    sed -i "s|%$key%|${!key}|" /etc/nginx/sites-available/*.conf
+    sed -i "s|%$key%|${!key}|" /etc/nginx/nginx.conf # replace all instances of %KEY% with the value
 done
 
 cat /etc/nginx/sites-available/*.conf
