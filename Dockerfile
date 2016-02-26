@@ -1,8 +1,6 @@
-FROM spira/docker-base
+FROM debian:jessie
 
 MAINTAINER "Zak Henry" <zak.henry@gmail.com>
-
-WORKDIR /tmp
 
 # Install Nginx
 RUN apt-get update -y && \
@@ -16,10 +14,6 @@ RUN rm /etc/nginx/sites-enabled/default
 ADD config/nginx-start.sh /opt/bin/nginx-start.sh
 RUN chmod u=rwx /opt/bin/nginx-start.sh
 
-RUN mkdir -p ${DATA_ROOT:-/data}
+RUN mkdir -p /data
 
-# PORTS
-EXPOSE 80 8080 443
-
-WORKDIR /opt/bin
 ENTRYPOINT ["/opt/bin/nginx-start.sh"]
