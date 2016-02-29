@@ -8,7 +8,6 @@ RUN apt-get update -y && \
 
 # Apply Nginx configuration
 ADD config/nginx.conf /etc/nginx/nginx.conf
-RUN rm /etc/nginx/sites-enabled/default
 
 # Nginx startup script
 ADD config/nginx-start.sh /opt/bin/nginx-start.sh
